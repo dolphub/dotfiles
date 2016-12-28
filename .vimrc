@@ -25,24 +25,24 @@ function! LoadVundle()
 
     " Plugin 'vimwiki/vimwiki'
 
-    " Plugin 'tomtom/tcomment_vim'
+    Plugin 'tomtom/tcomment_vim' " Comments
     " Plugin 'tpope/vim-vinegar'
-    " Plugin 'jacoborus/tender'
+    Plugin 'jacoborus/tender' " Colour Scheme
     " Plugin 'valloric/youcompleteme'
-    " Plugin 'gmarik/Vundle.vim'
-    " Plugin 'bling/vim-airline'
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'bling/vim-airline' " status bar
     Plugin 'vim-airline/vim-airline-themes'
     " Plugin 'scrooloose/syntastic'
     Plugin 'chriskempson/base16-vim'
     " Plugin 'elzr/vim-json'
-    " Plugin 'tpope/vim-surround'
-    " Plugin 'kien/ctrlp.vim'
-    Plugin 'ervandew/supertab'
-    " Plugin 'mattn/emmet-vim'
+    Plugin 'tpope/vim-surround'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'ervandew/supertab' " Tab complete parent module
+    Plugin 'mattn/emmet-vim'
     " Plugin 'junegunn/vim-easy-align'
 
     Plugin 'pangloss/vim-javascript'
-    " Plugin 'mxw/vim-jsx'
+    Plugin 'mxw/vim-jsx'
 
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
@@ -243,3 +243,5 @@ set tags=./tags;/
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'base16_tomorrow'
 let g:netrw_liststyle=3
+
+set mouse=a
