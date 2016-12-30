@@ -51,6 +51,9 @@ function! LoadVundle()
 
     " Multi select
     Plugin 'terryma/vim-multiple-cursors'
+    
+    " Auto close
+    Plugin 'jiangmiao/auto-pairs'
 
     if vundle_installed==0
         echo vundle_installed
@@ -244,4 +247,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'base16_tomorrow'
 let g:netrw_liststyle=3
 
+" set mouse enabled
 set mouse=a
+
+" move between split screens easier
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set clipboard=unnamed

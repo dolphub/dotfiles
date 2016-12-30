@@ -91,3 +91,5 @@ alias ragnarbuild="ssh ragnar@si-build.tech.ek3.com"
 alias dstudios="ssh root@159.203.20.19"
 
 alias vim='/usr/local/Cellar/macvim/7.4-105/bin/mvim -v'
+alias vi='/usr/local/Cellar/macvim/7.4-105/bin/mvim -v'
+
