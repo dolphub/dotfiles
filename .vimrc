@@ -135,13 +135,13 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backspace=indent,eol,start
 
 " Tab settings and autoindent
-set tabstop=4
-set shiftwidth=4
-"set softtabstop=4
-set expandtab
+set tabstop=8 
+set softtabstop=0 
+set expandtab 
+set shiftwidth=4 
+set smarttab
 set autoindent
 set smartindent
-
 set laststatus=2
 set showmatch
 
