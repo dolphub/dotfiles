@@ -172,10 +172,12 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>596 587 918 381 0 0 1680 1027 </string>
+	<string>596 495 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 569 570 452 0 0 1680 1027 </string>
+	<string>0 61 1675 996 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>767 300 570 452 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -798,6 +800,8 @@
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>511278078.53105903</real>
 	<key>PointerActions</key>
@@ -835,6 +839,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/randymikkelsaar/Documents/projects/dotfiles</string>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -844,11 +850,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-15T13:41:18Z</date>
+	<date>2017-04-03T17:08:15Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>WindowNumber</key>
