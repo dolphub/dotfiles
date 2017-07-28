@@ -175,9 +175,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>596 495 796 473 0 0 1680 1027 </string>
+	<string>596 420 918 498 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 61 1675 996 0 0 1920 1057 </string>
+	<string>0 7 1676 762 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>767 300 570 452 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -771,7 +771,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.18042021079881657</real>
+			<real>0.41806813979289942</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -804,6 +804,8 @@
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>511278078.53105903</real>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -839,6 +841,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/randymikkelsaar/Documents/projects/dotfiles</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -850,11 +854,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-04-03T17:08:15Z</date>
+	<date>2017-06-28T01:57:37Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>WindowNumber</key>
@@ -866,7 +870,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.0.15</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
