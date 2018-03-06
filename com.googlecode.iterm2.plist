@@ -183,9 +183,9 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>4236 751 796 473 1680 -395 3840 2137 </string>
+	<string>2 462 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>6441 415 2117 996 5520 -395 3840 2137 </string>
+	<string>6117 70 2215 1393 5520 -395 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>4439 524 570 452 1680 -603 3840 2137 </string>
 	<key>New Bookmarks</key>
@@ -814,6 +814,8 @@
 	<real>511278078.53105903</real>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PerformDNSLookups</key>
 	<false/>
 	<key>PointerActions</key>
@@ -864,7 +866,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-23T06:21:47Z</date>
+	<date>2018-02-07T15:43:35Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
