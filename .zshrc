@@ -115,6 +115,7 @@ alias gb='git branch'
 alias gaa='git add -A'
 alias gcm='git commit -m'
 alias gup='git commit --fixup HEAD'
+alias gamend='git commit --amend'
 
 function newBranch() {
     git checkout -b $1
@@ -127,7 +128,10 @@ function changeBranch() {
 alias gcb=newBranch
 alias gc=changeBranch
 
-
+######################
+# Node Aliases
+######################
+alias tnode='ts-node'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -187,6 +191,19 @@ function changeBranch() {
     git checkout $1
 }
 
+function grebase() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "grebase requires exactly 1 parameter: number" >&2; exit 1
+    fi
+
+    re='^[0-9]+$'
+    if ! [[ $1 =~ $re ]] ; then
+       echo "error: Not a number" >&2; exit 1
+    fi
+
+    git rebase -i HEAD~$1
+}
+
 alias gcb=newBranch
 alias gc=changeBranch
 
@@ -230,6 +247,25 @@ setopt append_history
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# eval $(minikube docker-env)
+
+alias fuckvehiklmaster="git checkout -b fuckmaster && git branch -D master && git fetch vehikl && git checkout -b master vehikl/master && git branch -D fuckmaster"
+cassandraPortForward () {
+    kubectl port-forward `kubectl get pods | grep cassandra | cut -d' ' -f1` 7000:7000 7001:7001 7199:7199 9042:9042 9160:9160
+}
+
+rabbitPortForward () {
+    kubectl port-forward `kubectl get pods | grep rabbit | grep -v stats | grep -v proxy | grep -v exporter | cut -d' ' -f1` 5672:5672 15672:15672 5671:5671 9093:9093
+}
+
+redisPortForward () {
+    kubectl port-forward `kubectl get pods | grep redis | grep -v exporter |  cut -d' ' -f1` 6379:6379 26379:26379
+}
+
+
+# alias cassandraPortForward=cassandra_port_foward
+#alias rabbitPortForward=rabbit_port_forward
+#alias redisPortForward=redis_port_forward
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
