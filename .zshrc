@@ -7,7 +7,14 @@ export ZSH=/Users/randymikkelsaar/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
+ZSH_THEME="lambda-gitster"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +58,9 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx brew npm make composer)
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,11 +92,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-    export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-    export PATH="$HOME/Android/tools:$PATH"
-    export PATH="$HOME/Android/platform-tools:$PATH"
-    export ANDROID_HOME="$HOME/Android"#
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+
+# ==========
+# Aliases
+# ==========
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
@@ -98,14 +111,7 @@ alias ...='cd ../../'                       # Go back 2 directory levels
 alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
-alias cls='clear && pwd && ls -lrt'	    # Clear screen and list contents
 
-alias ~="cd ~"                              # ~:            Go Home
-alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
-
-alias g="gulp"
-alias pa="php artisan"
 # ============
 # Git Commands
 # ============
@@ -144,16 +150,6 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 #   ---------------------------------------
 
 
-#   cleanupDS:  Recursively delete .DS_Store files
-#   -------------------------------------------------------------------
-alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
-
-alias ragnar="ssh ragnar@viking.tech.ek3.com"
-alias ragnarbuild="ssh ragnar@si-build.tech.ek3.com"
-alias dstudios="ssh root@159.203.20.19"
-
-alias vim='/usr/local/Cellar/macvim/8.0-127/bin/mvim -v'
-alias vi='/usr/local/Cellar/macvim/8.0-127/bin/mvim -v'
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -165,14 +161,7 @@ alias ...='cd ../../'                       # Go back 2 directory levels
 alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
-alias cls='clear && pwd && ls -lrt'	    # Clear screen and list contents
 
-alias ~="cd ~"                              # ~:            Go Home
-alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
-
-alias g="gulp"
-alias pa="php artisan"
 # ============
 # Git Commands
 # ============
@@ -206,67 +195,3 @@ function grebase() {
 
 alias gcb=newBranch
 alias gc=changeBranch
-
-
-
-#   lr:  Full Recursive Directory Listing
-#   ------------------------------------------
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
-
-
-
-#   ---------------------------------------
-#   7.  SYSTEMS OPERATIONS & INFORMATION
-#   ---------------------------------------
-
-
-#   cleanupDS:  Recursively delete .DS_Store files
-#   -------------------------------------------------------------------
-alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
-
-alias ragnar="ssh ragnar@viking.tech.ek3.com"
-alias ragnarbuild="ssh ragnar@si-build.tech.ek3.com"
-alias dstudios="ssh root@159.203.20.19"
-
-alias vim='/usr/local/Cellar/macvim/8.0-127/bin/mvim -v'
-alias vi='/usr/local/Cellar/macvim/8.0-127/bin/mvim -v'
-
-
-# Customize some options
-setopt autocd
-setopt nocheckjobs
-setopt nohup
-setopt listpacked
-setopt extendedglob
-setopt completeinword
-setopt alwaystoend
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_verify
-setopt append_history
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# eval $(minikube docker-env)
-
-alias fuckvehiklmaster="git checkout -b fuckmaster && git branch -D master && git fetch vehikl && git checkout -b master vehikl/master && git branch -D fuckmaster"
-cassandraPortForward () {
-    kubectl port-forward `kubectl get pods | grep cassandra | cut -d' ' -f1` 7000:7000 7001:7001 7199:7199 9042:9042 9160:9160
-}
-
-rabbitPortForward () {
-    kubectl port-forward `kubectl get pods | grep rabbit | grep -v stats | grep -v proxy | grep -v exporter | cut -d' ' -f1` 5672:5672 15672:15672 5671:5671 9093:9093
-}
-
-redisPortForward () {
-    kubectl port-forward `kubectl get pods | grep redis | grep -v exporter |  cut -d' ' -f1` 6379:6379 26379:26379
-}
-
-
-# alias cassandraPortForward=cassandra_port_foward
-#alias rabbitPortForward=rabbit_port_forward
-#alias redisPortForward=redis_port_forward
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
