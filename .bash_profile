@@ -56,6 +56,8 @@ alias g="gulp"
 alias gs='git status'
 alias gb='git branch'
 alias gaa='git add -A'
+alias gup='git commit --fixup HEAD'
+alias gamend='git commit --amend'
 alias gcm='git commit -m'
 
 function newBranch() {
@@ -67,6 +69,8 @@ function changeBranch() {
 }
 
 alias gcb=newBranch
+alias gc=changeBranch
+
 alias gc=changeBranch
 
 
