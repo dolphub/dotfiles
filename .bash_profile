@@ -59,6 +59,7 @@ alias gaa='git add -A'
 alias gup='git commit --fixup HEAD'
 alias gamend='git commit --amend'
 alias gcm='git commit -m'
+alias gpush='git push origin `git symbolic-ref HEAD 2>/dev/null` -u'
 
 function newBranch() {
     git checkout -b $1
