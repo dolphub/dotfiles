@@ -122,6 +122,7 @@ alias gaa='git add -A'
 alias gcm='git commit -m'
 alias gup='git commit --fixup HEAD'
 alias gamend='git commit --amend'
+alias gpush='git push origin `git symbolic-ref HEAD 2>/dev/null` -u'
 
 function newBranch() {
     git checkout -b $1
@@ -143,43 +144,6 @@ alias tnode='ts-node'
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
-
-
-#   ---------------------------------------
-#   7.  SYSTEMS OPERATIONS & INFORMATION
-#   ---------------------------------------
-
-
-
-alias cp='cp -iv'                           # Preferred 'cp' implementation
-alias mv='mv -iv'                           # Preferred 'mv' implementation
-alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
-alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-alias ..='cd ../'                           # Go back 1 directory level
-alias ...='cd ../../'                       # Go back 2 directory levels
-alias .3='cd ../../../'                     # Go back 3 directory levels
-alias .4='cd ../../../../'                  # Go back 4 directory levels
-alias .5='cd ../../../../../'               # Go back 5 directory levels
-
-# ============
-# Git Commands
-# ============
-
-alias gs='git status'
-alias gb='git branch'
-alias gaa='git add -A'
-alias gcm='git commit -m'
-alias gup='git commit --fixup HEAD'
-
-function newBranch() {
-    git checkout -b $1
-}
-
-function changeBranch() {
-    git checkout $1
-}
-
 function grebase() {
     if [[ "$#" -ne 1 ]]; then
         echo "grebase requires exactly 1 parameter: number" >&2; exit 1
@@ -193,5 +157,13 @@ function grebase() {
     git rebase -i HEAD~$1
 }
 
-alias gcb=newBranch
-alias gc=changeBranch
+# ==============
+# Program Aliases
+# ==============
+alias codei='code-insiders'
+alias k='kubectl'
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
