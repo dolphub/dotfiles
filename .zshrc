@@ -162,8 +162,19 @@ function grebase() {
 # ==============
 alias codei='code-insiders'
 alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias kdel='kubectl delete'
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+alias ecrLogin='/usr/local/bin/aws ecr get-login --no-include-email --region ca-central-1 | pbcopy'
+alias p='/Users/randymikkelsaar/.pulumi/bin/pulumi'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/randymikkelsaar/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/randymikkelsaar/Documents/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/randymikkelsaar/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/randymikkelsaar/Documents/google-cloud-sdk/completion.zsh.inc'; fi
