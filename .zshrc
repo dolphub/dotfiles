@@ -2,25 +2,25 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/randymikkelsaar/.oh-my-zsh
+  export ZSH="/home/dolph/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda-gitster"
+ZSH_THEME="robbyrussell"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -48,19 +48,21 @@ ZSH_THEME="lambda-gitster"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,9 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -92,10 +91,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="/home/dolph/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # ==========
@@ -123,6 +121,7 @@ alias gcm='git commit -m'
 alias gup='git commit --fixup HEAD'
 alias gamend='git commit --amend'
 alias gpush='git push origin `git symbolic-ref HEAD 2>/dev/null` -u'
+alias gl='git log --oneline --decorate'
 
 function newBranch() {
     git checkout -b $1
@@ -165,16 +164,35 @@ alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 alias kdel='kubectl delete'
+alias ke='kubens'
+alias kx='kubectx'
 
+alias ecrLogin='/usr/local/bin/aws ecr get-login --no-include-email --region ca-central-1 | xclip -selection clipboard'
+alias c='xclip -selection clipboard'
+alias v='xclip -o'
+
+# Pulumi
+alias p='/home/dolph/.pulumi/bin/pulumi'
+alias psel='p stack select'
+
+alias re-='source ~/.zshrc'
+
+
+
+. ~/z.sh
+PATH="$HOME/.composer/vendor/bin:$PATH"
+export VISUAL=vim
+export EDITOR="$VISUAL"
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias ecrLogin='/usr/local/bin/aws ecr get-login --no-include-email --region ca-central-1 | pbcopy'
-alias p='/Users/randymikkelsaar/.pulumi/bin/pulumi'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/randymikkelsaar/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/randymikkelsaar/Documents/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/dolph/google-cloud-sdk/path.zsh.inc' ]; then . '/home/dolph/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/randymikkelsaar/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/randymikkelsaar/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/dolph/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/dolph/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+export GOOGLE_CREDENTIALS=`cat ~/.gcp/credentials.json`
