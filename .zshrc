@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/dolph/.oh-my-zsh"
+export ZSH="/Users/rmikkelsaar/.oh-my-zsh"
+
+export FZF_BASE=/Users/rmikkelsaar/.fzf
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -26,8 +28,14 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -62,10 +70,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+   fzf
+   git
+   docker
+)
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -91,10 +102,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export NVM_DIR="/home/dolph/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+zstyle ':completion:*' menu select
 
 # ==========
 # Aliases
@@ -122,6 +133,7 @@ alias gup='git commit --fixup HEAD'
 alias gamend='git commit --amend'
 alias gpush='git push origin `git symbolic-ref HEAD 2>/dev/null` -u'
 alias gl='git log --oneline --decorate'
+alias re-='source ~/.zshrc'
 
 function newBranch() {
     git checkout -b $1
@@ -159,40 +171,27 @@ function grebase() {
 # ==============
 # Program Aliases
 # ==============
-alias codei='code-insiders'
 alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias kns='kubens'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 alias kdel='kubectl delete'
 alias ke='kubens'
 alias kx='kubectx'
+alias w='wrangler'
+alias dc='docker-compose'
 
-alias ecrLogin='/usr/local/bin/aws ecr get-login --no-include-email --region ca-central-1 | xclip -selection clipboard'
 alias c='xclip -selection clipboard'
 alias v='xclip -o'
+alias t='terraform'
 
-# Pulumi
-alias p='/home/dolph/.pulumi/bin/pulumi'
-alias psel='p stack select'
-
-alias re-='source ~/.zshrc'
-
-
+# z.sh
 
 . ~/z.sh
-PATH="$HOME/.composer/vendor/bin:$PATH"
-export VISUAL=vim
-export EDITOR="$VISUAL"
-# add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/dolph/google-cloud-sdk/path.zsh.inc' ]; then . '/home/dolph/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/dolph/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/dolph/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-export GOOGLE_CREDENTIALS=`cat ~/.gcp/credentials.json`
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+
